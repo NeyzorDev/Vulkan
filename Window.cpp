@@ -1,14 +1,29 @@
 #include "Window.h"
 
 
-
 #define GLFW_INCLUDE_VULKAN
 
 
-Window::Window() : m_width(800), m_height(600)
+Window* Window::m_instance = nullptr;
+
+Window::Window() : m_window(nullptr), m_width(800), m_height(600)
 {
-	m_window = nullptr;
 }
+
+Window::~Window()
+{
+	delete m_instance;
+}
+
+Window* Window::GetInstance()
+{
+	if (m_instance == nullptr)
+	{
+		m_instance = new Window();
+	}
+	return m_instance;
+}
+
 
 void Window::Initialize()
 {
@@ -32,8 +47,14 @@ void Window::MainLoop()
 	}
 }
 
-void Window::Shutdown() {
+void Window::Shutdown()
+{
 	glfwDestroyWindow(m_window);
 
 	glfwTerminate();
+}
+
+GLFWwindow* Window::GetWindow()
+{
+	return m_window;
 }

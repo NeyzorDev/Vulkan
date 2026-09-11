@@ -4,16 +4,13 @@
 
 int main()
 {
-	Window* w = new Window();
-	
-
-	w->Initialize();
+	WINDOWMGR->Initialize();
 	GRAPHICSMGR->Initialize();
 
-	w->MainLoop();
+	WINDOWMGR->MainLoop();
 
 	GRAPHICSMGR->Shutdown();
-	w->Shutdown();
+	WINDOWMGR->Shutdown();
 
 	return 0;
 }
