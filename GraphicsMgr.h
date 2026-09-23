@@ -60,6 +60,8 @@ private:
 	VkPresentModeKHR ChooseSwapPresentMode(const std::vector<VkPresentModeKHR>& availablePresentModes);
 	VkExtent2D ChooseSwapExtent(const VkSurfaceCapabilitiesKHR& capabilities);
 
+	void CreateImageViews();
+
 	VkInstance m_vkInstance; 
 	VkPhysicalDevice m_phyDevice;
 	VkDevice m_device;
@@ -67,6 +69,8 @@ private:
 	std::vector<VkImage> m_swapChainImages;
 	VkFormat m_swapChainImageFormat;
 	VkExtent2D m_swapChainExtent;
+
+	std::vector<VkImageView> m_swapChainImageViews;
 
 	VkQueue m_graphicsQueue;
 	VkQueue presentQueue;
