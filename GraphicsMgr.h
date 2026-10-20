@@ -62,6 +62,11 @@ private:
 
 	void CreateImageViews();
 
+	void CreateRenderPass();
+
+	void CreateGraphicsPipeline();
+	VkShaderModule CreateShaderModule(const std::vector<char>& code);
+
 	VkInstance m_vkInstance; 
 	VkPhysicalDevice m_phyDevice;
 	VkDevice m_device;
@@ -77,6 +82,9 @@ private:
 
 	VkSurfaceKHR m_surface;
 
+	VkRenderPass m_renderPass;
+	VkPipelineLayout m_pipelineLayout;
+	VkPipeline m_graphicsPipeline;
 
 	// Validation layers.
 	const std::vector<const char*> validationLayers = 
