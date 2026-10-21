@@ -67,6 +67,9 @@ private:
 	void CreateGraphicsPipeline();
 	VkShaderModule CreateShaderModule(const std::vector<char>& code);
 
+	void CreateFramebuffers();
+
+
 	VkInstance m_vkInstance; 
 	VkPhysicalDevice m_phyDevice;
 	VkDevice m_device;
@@ -85,6 +88,9 @@ private:
 	VkRenderPass m_renderPass;
 	VkPipelineLayout m_pipelineLayout;
 	VkPipeline m_graphicsPipeline;
+
+
+	std::vector<VkFramebuffer> m_swapChainFramebuffers;
 
 	// Validation layers.
 	const std::vector<const char*> validationLayers = 
